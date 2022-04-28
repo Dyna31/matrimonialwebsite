@@ -1,0 +1,104 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="contact-form section-padding30 fix">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-6 col-lg-6">
+                    <div class="form-wrapper">
+                        {% for a in obj %}
+                        <form method="POST" action="{% url 'update' id=a.id %}" enctype="multipart/form-data" align="center">
+                           {% csrf_token %}
+                            <!-- section tittle -->
+                            <div class="row ">
+                                <div class="col-lg-12">
+                                    <div class="section-tittle tittle-form text-center mb-30">
+                                        <center><h2>Edit Here</h2></center>
+                                        <center><img src="{% static 'assets/img/gallery/tittle_img2.png' %}" style="height: 100%;" alt=""></center>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="form-box mb-30">
+                                        <input type="text" name="uname" placeholder="Name" value="{{a.uname}}">
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-box subject-icon mb-30">
+                                        <input type="Email" name="email" placeholder="Email" value="{{a.email}}">
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-box subject-icon mb-30">
+                                        <input type="password" name="upassword" placeholder="password" value="{{a.upassword}}">
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-box subject-icon mb-30">
+                                        <input type="text" name="age" placeholder="Age" value="{{a.age}}">
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-box subject-icon mb-30">
+                                        <input type="text" name="gender" placeholder="gender" value="{{a.gender}}">
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-box subject-icon mb-30">
+                                        <input type="text" name="phonenumber" placeholder="Phonenumber" value="{{a.phonenumber}}">
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-box subject-icon mb-30">
+                                        <input type="text" name="weight" placeholder="weight" value="{{a.weight}}">
+                                    </div>
+                                </div>
+                                
+                                <div class="col-lg-12">
+                                    <div class="form-box subject-icon mb-30">
+                                        <input type="file" name="xyz" placeholder="Image" value="{{a.xyz}}">
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-box subject-icon mb-30">
+                                        <input type="text" name="profession" placeholder="Profession" value="{{a.profession}}">
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 mb-30">
+                                    <div class="select-itms">
+                                        <select name="category" id="select2" value="{{a.category}}}}" >
+                                            <option value="Christian">Christian</option>
+                                            <option value="Hindu">Hindu</option>
+                                            <option value="Muslim">Muslim</option>
+                                            <option value="Intercaste">Intercaste</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-box message-icon mb-30">
+                                        <textarea name="address" id="message" placeholder="Address" value="{{a.message}}"></textarea>
+                                    </div>
+                                <div class="submit-info">
+                                    <button class="btn" type="submit">Confirm now</button>
+                                </div>
+                                </div>
+                            </div>
+                        </form>
+                        {% endfor %}
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                        
+</body>
+</html>

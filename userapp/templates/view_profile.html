@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="{% static 'abc/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'abc/css/style.css' %}" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{% static 'abc/css/font-awesome.min.css' %}" />
+	<link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet">
+    <link href="{% static 'abc/css/animate.css' %}" rel="stylesheet" type="text/css" media="all">
+   <script src="{% static 'abc/js/jquery-2.1.1.min.js' %}"></script>
+    <script src="{% static 'abc/js/bootstrap.min.js' %}"></script>
+</head>
+<body>
+   
+    
+
+    <section id="details">
+        <div class="container">
+            <div class="row">
+              
+                <div class="col-sm-12 space_all">
+                    <div class="col-sm-11 space_all">
+                        <div class="details_1">
+                            <h3>VIEW PROFILE</h3>
+                           
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-1 space_all">  
+                </div>
+            </div>
+           
+            
+            <div class="row">
+                {% for i in obj %}
+                <form method="POST" action="{% url 'getmsg' %}" enctype="multipart/form-data">
+				{% csrf_token %}
+			
+                
+              
+                <div class="col-sm-6 space_all">
+                    <div class="details_main clearfix">
+                        <div class="col-sm-4 space_all">
+                            <div class="details_3">
+                                <p><a href=" "><img src="{{i.xyz.url}}" style="width: 400px; height: 400px;"></a></p>
+                            </div>
+                            <div class="details_4">
+                                
+                            </div>
+                            <div class="details_5">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    <div class="col-sm-6 space_all">
+                        <div class="col-sm-12 space_all">
+                            <div class="col-sm-8"></div>
+                                <div class="details_6">
+                                    <p>Name <a href=""> {{i.uname}} </a></p>
+
+                                    <p>Age: <a href=""> {{i.age}} </a></p>
+                                    <p>Religion: <a href=""> {{i.category}}  </a></p>
+                                    
+                                    <p>Email:  {{i.email}}</a></p>
+                                    <p>Phonenumber: {{i.phonenumber}}  </a></p>
+                                    <p>Profession: {{i.profession}}</a></p>
+                                    <p>weight: {{i.weight}}</a></p>
+                                    <p>Message:
+                                    <input type="text" name="msg" ></p>
+                                    <input type="hidden" name="userid" value="{{request.session.userid}}">
+                                    <input type="hidden" name="mid" value="{{i.id}}" >
+                                    <p><button type="submit" class="btn btn-primary">Send message</button></p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    </div>
+                </form>
+                  {% endfor %}  
+                   </div>
+                  
+                </div>
+                
+        </div>
+    </section>
+    </body>
+    </html>

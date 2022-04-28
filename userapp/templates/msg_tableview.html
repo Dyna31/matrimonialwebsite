@@ -1,0 +1,46 @@
+{% extends 'user.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body{
+            background-color: rgb(159, 161, 163);
+        }
+        h2
+        {
+            text-align: center;
+        }
+        th,tr,td,table {
+            border: 5px solid black;
+
+            
+        }
+        </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% block content %}
+    <h2><center>VIEW SEND MESSAGE</center></h2><br>
+    <table align="center">
+        <tr>
+            <th>SENDTO</th>
+            <th>MESSAGE</th>
+           
+           
+        </tr>
+        {% for i in obj %}
+        <tr>
+        
+        <td>{{i.mid}}</td>
+        <td>{{i.msg}}</td>
+        <td><a href="{% url 'view' id=i.mid %}"><input type="button" class="btn btn-success" value="View Profile"></td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endblock %}
+</body>
+</html>

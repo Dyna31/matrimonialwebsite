@@ -1,0 +1,74 @@
+{% extends 'user.html' %}
+{% load static %}
+
+                        {% block content %}
+                        <!-- Mobile Menu -->
+                        <section id="home-section" class="hero">
+                            <div class="home-slider owl-carousel"></div>
+                            <div class="slider-item" style="background-image: url({% static 'images/bg_1.jpg' %});">
+                                <div class="overlay"></div>
+                              <div class="container">
+                                <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true"></div>
+                  
+                                  <div class="col-md-12 ftco-animate text-center"><br>
+                                    <br>
+                                    <h1 class="mb-2">Wed Matrimony </h1>
+                                    <h2 class="subheading mb-4">100% Secure</h2>
+                                   <h2>Find</h2>
+                                   <h2>Your </h2>
+                                   <h2>Perfect </h2>
+                                   <h2>Partner</h2>
+                                   <h2>Here</h2>
+                                   <h2> ..</h2>
+                                   <h2> ..</h2>
+                                   <h2> ..</h2>
+                                   <h2> ..</h2>
+
+                                  </div>
+                  
+                                </div>
+                              </div>
+                            </div>
+                  
+                           
+                          </div>
+                      </section>
+                      <section>              
+                      <h2  class="subheading mb-4" ><center>VIEW PROFILES</center></h2><br>
+                     
+                      <div class="container">
+                        <div class="row">
+                        
+                          {% for i in data %}
+                            <div class="col-md-6 col-lg-3 ftco-animate">
+                                <div class="product">
+                                   
+                                    <a href="{% url 'groom' %}" class="img-prod"><img class="img-fluid" src="{{i.xyz.url}}" style="height: 200px;" width="280px" alt="Colorlib Template">
+                                        
+                                        <div class="overlay"></div>
+                                    </a>
+                                    <div class="text py-3 pb-4 px-3 text-center">
+                                        <h3><a href="{% url 'groom' %}">{{i.uname}}</a></h3>
+                                        {% if 'username_x' in request.session %}
+                                       
+                                        <p><a href="{% url 'view' id=i.id  %}"><button type="button" class="btn btn-primary">VIEW PROFILE</button></p>
+                                          {% else %}
+			                                      <a href="{% url 'loginuser' %}"><button type="button" class="btn btn-primary">View profile</button>
+			                                    {% endif %}
+                                        
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                          
+                            {% endfor %} 
+                        </div>
+                        
+                    </div>
+                 
+                </section>
+                     
+              
+                     
+              
+{% endblock %}
